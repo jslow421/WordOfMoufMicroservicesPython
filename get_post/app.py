@@ -9,12 +9,12 @@ def lambda_handler(event, context):
     print(event)
     print(context)
     # print(event.PostAuthor)
-    requested_id = event['QueryStringParameters']['id']
-    item = table.get_item(Key={
+    requested_id = event['id']
+    post = table.get_item(Key={
         'PostId': requested_id
     })
 
     return {
         'statuscode': 200,
-        'body': item
+        'body': post
     }

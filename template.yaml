@@ -18,3 +18,12 @@ Resources:
             CodeUri: get_post/
             Handler: app.lambda_handler
             Runtime: python3.9
+
+    CreateNewPost:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: create_new_post/
+            Handler: app.lambda_handler
+            Runtime: python3.9
+        Description: Create a new post
+        
