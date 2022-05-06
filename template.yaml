@@ -1,9 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-    dynamodb_event_reader
-
-    Sample SAM Template for dynamodb_event_reader to interact with DynamoDB Events.
+    Word of Mouf
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -13,7 +11,7 @@ Globals:
 Resources:
 
     GetSinglePostById:
-        Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+        Type: AWS::Serverless::Function
         Properties:
             CodeUri: get_post/
             Handler: app.lambda_handler
@@ -26,4 +24,13 @@ Resources:
             Handler: app.lambda_handler
             Runtime: python3.9
         Description: Create a new post
-        
+        Metadata:
+            Author: Jslowik
+        UpdateReplacePolicy: Delete
+
+    GetAllPosts:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: get_all_posts/
+            Handler: app.lambda_handler
+            Runtime: python3.9

@@ -10,7 +10,7 @@ manifest_hash = ""
 packagetype = "Zip"
 functions = ["GetSinglePostById"]
 
-[function_build_definitions.58179144-a89f-4836-8395-6289927f49ec]
+[function_build_definitions.b2bbbf09-97ee-448f-beb3-9702305e358f]
 codeuri = "C:\\Projects\\WordOfMoufMicroservicesPython\\create_new_post"
 runtime = "python3.9"
 architecture = "x86_64"
@@ -18,5 +18,17 @@ handler = "app.lambda_handler"
 manifest_hash = ""
 packagetype = "Zip"
 functions = ["CreateNewPost"]
+
+[function_build_definitions.b2bbbf09-97ee-448f-beb3-9702305e358f.metadata]
+Author = "Jslowik"
+
+[function_build_definitions.d892cfaf-dc0d-4d8f-80b8-74fec77e7698]
+codeuri = "C:\\Projects\\WordOfMoufMicroservicesPython\\get_all_posts"
+runtime = "python3.9"
+architecture = "x86_64"
+handler = "app.lambda_handler"
+manifest_hash = ""
+packagetype = "Zip"
+functions = ["GetAllPosts"]
 
 [layer_build_definitions]

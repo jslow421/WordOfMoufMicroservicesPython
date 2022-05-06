@@ -1,25 +1,29 @@
-from __future__ import print_function
-
 import uuid
 from datetime import datetime, timezone
 
 import boto3
 
-from Core.PostModel import PostModel
+
+class PostModel:
+    def __init__(self, post_id, author_name, created_date, post_html, updated_date):
+        self.PostId = post_id
+        self.AuthorName = author_name
+        self.CreatedDate = created_date
+        self.PostHtml = post_html
+        self.UpdatedDate = updated_date
 
 
 def lambda_handler(event, context):
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('Posts')
-    print(event)
+    table = boto3.resource('dynamodb').Table('Posts')
+
     post = table.put_item(
-        Item=PostModel(
-            uuid.uuid4(),
-            event['postAuthor'],
-            datetime.now(timezone.utc),
-            event['postHtml'],
-            datetime.now(timezone.utc)
-        )
+        Item={
+            'PostId': str(uuid.uuid4()),
+            'AuthorName': event['postAuthor'],
+            'CreatedDate': str(datetime.now(timezone.utc)),
+            'PostHtml': event['postText'],
+            'UpdatedDate': str(datetime.now(timezone.utc))
+        }
     )
 
     return {
