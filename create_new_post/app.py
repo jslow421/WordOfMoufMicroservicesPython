@@ -13,6 +13,7 @@ def lambda_handler(event, context):
             'AuthorName': event['postAuthor'],
             'CreatedDate': str(datetime.now(timezone.utc)),
             'PostHtml': event['postText'],
+            'PostTitle': event['postTitle'],
             'UpdatedDate': str(datetime.now(timezone.utc))
         }
     )

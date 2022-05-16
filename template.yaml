@@ -2,7 +2,6 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
     Word of Mouf
-
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
     Function:
@@ -16,6 +15,7 @@ Resources:
             CodeUri: get_post/
             Handler: app.lambda_handler
             Runtime: python3.9
+        UpdateReplacePolicy: Delete
 
     CreateNewPost:
         Type: AWS::Serverless::Function
@@ -34,3 +34,4 @@ Resources:
             CodeUri: get_all_posts/
             Handler: app.lambda_handler
             Runtime: python3.9
+        UpdateReplacePolicy: Delete
